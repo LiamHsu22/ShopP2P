@@ -1,0 +1,53 @@
+#detail h3{
+    padding: 80px 0px;
+}
+#detail ul, #detail p, #detail h5{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#detail #user_name, #detail #rec{
+    display: inline-block;
+    padding-left: 30px;
+}
+
+#detail li{
+    padding: 20px 0px;
+}
+#bottom{
+    margin-bottom: 80px;
+}
+
+#table_detail{
+    padding:80px;
+    margin-bottom: 40px;
+}
+
+.btn{
+    margin-top: 40px;
+    background: #f05f5c;
+    color: white;
+    padding: 9px 26px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border:1px solid #c9c9c9;
+  }
+th{
+    border:1px solid #c9c9c9;
+    background-color: #f05f5c;
+    color: white;
+    height: 50px;
+    padding:15px;
+}
+td{
+    border:1px solid #c9c9c9;
+    padding:15px;
+}
+tr:nth-child(odd) {background-color: #f2f2f2;}
+
+#table_detail .hidden_row {
+    display: none;
+}

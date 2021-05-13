@@ -1,0 +1,129 @@
+.btn{
+    background: #f05f5c;
+    color: white;
+    padding: 9px 26px;
+    border-radius: 10px;
+}
+h3{
+    font-size: 36px;
+    line-height: 1.5;
+
+}
+p{
+    color: #707070;
+}
+img{
+    max-width: 100%;
+}
+p.lead{
+    color:white;
+    font-size: 52px;
+}
+p.leadh{
+    color:black;
+    font-size: 20px;
+}
+#intro .jumbotron{
+    height:70vh;
+    margin-bottom: 0px;
+    background-image: url("../pictures/mainbg.jpg");
+    background-size: cover;
+}
+#intro h1{
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+}
+#intro .container{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#second{
+    padding: 80px 0px;
+}
+#second h3{
+    margin-bottom: 80px;
+}
+#second img{
+    width: 100px;
+    border-radius: 100%;
+    margin-bottom: 13px;
+}
+#latest{
+    padding: 80px 0px;
+    background: rgb(248,248,248);
+}
+#latest h3{
+    margin-bottom:80px;
+}
+#latest .upper{
+    position:relative;
+}
+#latest .innertext{
+    position: absolute;
+    bottom: 24px;
+    left: 26px;
+}
+#latest .innertext span{
+    background: rgba(255,255,255,0.3);
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+#latest .innertext h4{
+    font-size: 22px;
+    margin-top: 18px;
+}
+#latest .lower h3{
+    font-size: 24px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+#latest .lower i{
+    margin-right: 6px;
+}
+#latest .outer{
+    background: white;
+    box-shadow: 0 0 8px rgb(0 0 0 / 8%);
+}
+#latest .lower{
+    padding: 7px 20px 20px 20px;
+}
+#latest a{
+    color:black;
+}
+#latest a:hover{
+    text-decoration: none;
+}
+#email{
+    padding:80px 0px;
+}
+#email h3{
+    margin-bottom:80px;
+}
+#market{
+    padding:80px;
+}
+#market h3{
+    margin-bottom: 40px;
+}
+table {
+    width: 100%;
+    border:1px solid #c9c9c9;
+  }
+th{
+    border:1px solid #c9c9c9;
+    background-color: #f05f5c;
+    color: white;
+    height: 50px;
+    padding:15px;
+}
+td{
+    border:1px solid #c9c9c9;
+    padding:15px;
+}
+tr:nth-child(odd) {background-color: #f2f2f2;}

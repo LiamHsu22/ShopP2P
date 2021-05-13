@@ -1,0 +1,33 @@
+img {
+  float: left;
+  padding: 0px 0px;
+}
+
+body {
+    padding: 0px 0;
+}
+
+nav > ul {
+    background-color: rgb(256, 256, 256);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: inherit;
+    display: block;
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+nav li:hover {
+    background-color: rgb(115, 115, 115);
+    color: white;
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: center;
+}

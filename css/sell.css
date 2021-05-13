@@ -1,0 +1,19 @@
+#sell{
+    padding:80px;
+}
+#sell h3{
+    margin-bottom: 40px;
+}
+
+#button .btn{
+    margin-top: 40px;
+    background: #f05f5c;
+    color: white;
+    padding: 9px 26px;
+    border-radius: 10px;
+}
+
+#button .btn2{
+    position:relative;
+    left:460px; top: 0px;
+}
