@@ -10,7 +10,7 @@
     margin-right: 200px;
 }
 
-#board #user_name, #board #rec{
+#board #board #rec, #board #rec_std{
     display: inline-block;
     padding-left: 10px;
 }
@@ -24,34 +24,38 @@
 }
 
 #table_detail1 .btn1{
-    position:relative;
-    right:350px; top: 0px;
+    margin-left:10px;
+    margin-right:150px;
+    margin-bottom: 0px;
 }
-
 #table_detail1 .btn2{
-    position:relative;
-    left:350px; top: 0px;
+    margin-right:10px;
+    margin-left:150px;
+    margin-bottom: 0px;
 }
 
 #table_detail2 .btn1{
-    position:relative;
-    right:300px; top: 0px;
+    margin-left:10px;
+    margin-bottom: 0px;
 }
-
 #table_detail2 .btn2{
-    position:relative;
-    left:450px; top: 0px;
+    margin-right:10px;
+    margin-bottom: 0px;
 }
-
 #table_detail2 .btn3{
-    position:relative;
-    right:100px; top: 0px;
+    margin-right:250px;
+    margin-left:250px;
+    margin-bottom: 0px;
 }
 
-table {
+table{
     width: 100%;
     border:1px solid #c9c9c9;
-  }
+}
+table img{
+    height: 100px;
+    width: 150px;
+}
 th{
     border:1px solid #c9c9c9;
     background-color: #f05f5c;

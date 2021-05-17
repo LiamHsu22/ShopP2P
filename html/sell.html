@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC&family=Open+Sans&display=swap">
@@ -14,7 +14,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8506f93d5c.js" crossorigin="anonymous"></script>
     <script script type="module" src="../js/sell.js"></script>
-
     <title>ShopP2P</title>
 </head>
 
@@ -22,7 +21,7 @@
     <header style="background-color:white;">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="homepage.html">
-                <img src='../pictures/logo.jpg'>
+                <img src="../pictures/logo.jpg">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,27 +49,27 @@
         </nav>
     </header>
 
-    <section id='sell'>
-        <div class='container'>
+    <section id="sell">
+        <div class="container">
             <div class="row">
-                <div class='col-md-8 offset-md-2 text-center'>
+                <div class="col-md-8 offset-md-2 text-center">
                     <h3>物品資訊</h3>
                 </div>
             </div>
             
             <div class="row">
-                <div class='col-md-8 offset-md-2 text-left'>
+                <div class="col-md-8 offset-md-2 text-left">
                     <p>名稱</p>
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" aria-label="Sizing example input" 
-                        aria-describedby="inputGroup-sizing-lg" id='name' placeholder="最多16個中文字">
+                        aria-describedby="inputGroup-sizing-lg" id="name">
                     </div>
                     <br>
 
                     <p>價格 (1 ether = 1000000000 gwei)</p>
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" 
-                        aria-label="Text input with dropdown button" id='price' placeholder="最少價格為1000000 gwei, 請輸入正整數">
+                        aria-label="Text input with dropdown button" id="price" placeholder="最少價格為1000000 gwei, 請輸入正整數">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="unit">單位</button>
@@ -82,10 +81,10 @@
                     </div>
                     <br>
 
-                    <p>描述</p>
+                    <p>概述</p>
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" aria-label="Sizing example input" 
-                            aria-describedby="inputGroup-sizing-lg" id='msg' placeholder="最多16個中文字, 或64個英文字母">
+                            aria-describedby="inputGroup-sizing-lg" id="msg">
                         <br>
                     </div>
                     <br>
@@ -93,13 +92,37 @@
                     <p>時間 (天數)</p>
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control" aria-label="Sizing example input" 
-                            aria-describedby="inputGroup-sizing-lg" id='time'  placeholder="請輸入正整數">
+                            aria-describedby="inputGroup-sizing-lg" id="time"  placeholder="請輸入正整數">
                         <br>
                     </div>
                     <br>
-                    <section id='button'>
-                        <a class='btn' href='market.html'>返回市場</a>
-                        <input class='btn btn2' type="button" id='send' value="送出交易">
+
+                    <p>圖片</p>
+                    <div class="input-group input-group-lg">
+                        <form>
+                            <input type="file" id="pic">
+                            <input type="button" value="送出" id="sendPic">
+                        </form>
+                    </div>
+                    <div>
+                        <p id="hashPic">hash:</p>
+                    </div>
+                    <br>
+                    
+                    <p>詳述</p>
+                    <div class="input-group input-group-lg">
+                        <textarea type="text" class="form-control" aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-lg" id="more-msg" placeholder=""></textarea>
+                        <input type="button" value="送出" id="sendMsg">
+                    </div>
+                    <div>
+                        <p id="hashMsg">hash:</p>
+                    </div>
+                    <br>
+
+                    <section id="button">
+                        <a class="btn" href="market.html">返回市場</a>
+                        <input class="btn btn2" type="button" id="send" value="送出交易">
                     </section>
                 </div>
             </div>
@@ -109,27 +132,27 @@
     <footer style="background-color:white;">
         <div class="container">
             <div class="row">
-                <div class='col-md-4 text-left'>
-                    <img src='../pictures/logo.jpg'>
+                <div class="col-md-4 text-left">
+                    <img src="../pictures/logo.jpg">
                     <p>ShopP2P致力於在不影響使用者體驗下給予更加安全的交易保障，成本單純化與使用者隱私是我們的目標。</p>
                 </div>
-                <div class='col-md-4 text-left'>
+                <div class="col-md-4 text-left">
                     <h4>快速連結</h4>
                     <ul>
-                        <li><a href='homepage.html'>首頁</a></li>
-                        <li><a href='about_marketplace.html'>平台簡介</a></li>
+                        <li><a href="homepage.html">首頁</a></li>
+                        <li><a href="about_marketplace.html">平台簡介</a></li>
                     </ul>
                     <ul>
-                        <li><a href='rule.html'>交易規則</a></li>
-                        <li><a href='register.html'>馬上註冊</a></li>
+                        <li><a href="rule.html">交易規則</a></li>
+                        <li><a href="register.html">馬上註冊</a></li>
                     </ul>
                 </div>
-                <div class='col-md-4 text-left'>
+                <div class="col-md-4 text-left">
                     <h4>聯絡我們</h4>
                     <p>974花蓮縣壽豐鄉大學路二段1號<br>
                         Phone: 03 8903000<br>
-                        Allen's E-mail: <a href='mailto:410625023@gms.ndhu.edu.tw'>410625023@gms.ndhu.edu.tw</a><br>
-                        Billy's E-mail: <a href='mailto:410636016@gms.ndhu.edu.tw'>410636016@gms.ndhu.edu.tw</a>
+                        Allen"s E-mail: <a href="mailto:410625023@gms.ndhu.edu.tw">410625023@gms.ndhu.edu.tw</a><br>
+                        Billy"s E-mail: <a href="mailto:410636016@gms.ndhu.edu.tw">410636016@gms.ndhu.edu.tw</a>
                     </p>
                 </div>
             </div>
