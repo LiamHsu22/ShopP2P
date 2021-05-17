@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC&family=Open+Sans&display=swap">
@@ -24,9 +24,9 @@
     <script>
         $(function () {
             var $li = $('ul.tab-title li');
-            $($li.eq(0).addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
+            $($li.eq(0).addClass('active').find('a').attr('id')).siblings('.tab-inner').hide();
             $li.click(function () {
-                $($(this).find('a').attr('href')).show().siblings('.tab-inner').hide();
+                $($(this).find('a').attr('id')).show().siblings('.tab-inner').hide();
                 $(this).addClass('active').siblings('.active').removeClass('active');
             });
         });
@@ -72,17 +72,20 @@
             <div class="row">
                 <div class='col-md-12 text-left'>
                     <div class="row">
-                        <h5 id="user_name">使用者名稱: </h5><h5 id="rec">評價: %</h5>
+                        <h5 id="user_name">使用者名稱: </h5>
                         <br>
                     </div>
-                    <br>
+                    <div class="row">
+                        <h5 id="rec">評價: %</h5> <h5 id="rec_std">標準: %</h5>
+                        <br>
+                    </div>
                 </div>
             </div>
             
             <div id="tab-demo">
                 <ul class="tab-title">
-                    <li><a href="#tab01">賣出中</a></li>
-                    <li><a href="#tab02">買入中</a></li>
+                    <li><a id="#tab01">賣出中</a></li>
+                    <li><a id="#tab02">買入中</a></li>
                 </ul>
                 <div id="tab01" class="tab-inner">
                     <div class='row'>
@@ -90,6 +93,7 @@
                             <div class='outer'>
                                 <table id="table_detail1">
                                     <tr>
+                                        <th>物品圖片</th>
                                         <th>物品名稱</th>
                                         <th>銷售價格</th>
                                         <th>買家名稱</th>
@@ -107,6 +111,7 @@
                             <div class='outer'>
                                 <table id="table_detail2">
                                     <tr>
+                                        <th>物品圖片</th>
                                         <th>物品名稱</th>
                                         <th>銷售價格</th>
                                         <th>賣家名稱</th>

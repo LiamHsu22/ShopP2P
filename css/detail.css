@@ -31,10 +31,17 @@
     border-radius: 10px;
 }
 
-table {
+table{
     width: 100%;
     border:1px solid #c9c9c9;
-  }
+}
+table img{
+    height: 100px;
+    width: 150px;
+}
+table iframe{
+    margin-right: 250px;
+}
 th{
     border:1px solid #c9c9c9;
     background-color: #f05f5c;
