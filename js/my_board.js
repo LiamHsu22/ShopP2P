@@ -1,5 +1,6 @@
 import { ethers } from "../js/ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
+import "./node_modules/ipfs/index.min.js";
 import * as _ from "./node_modules/multiformats/esm/src/index.js"
 
 
@@ -9,12 +10,14 @@ const address = MyContract[1];
 
 let signer;
 let provider;
+let ipfs;
 var contract;
 
 async function init() {
     window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
     signer = provider.getSigner();
     contract = new ethers.Contract(address, abi, signer);
+    ipfs = await Ipfs.create();
 }
 init();
 
@@ -22,23 +25,29 @@ async function showName() {
     let addr = await signer.getAddress();
     let return_rec = await contract.functions.CheckUserRec(addr.toString(), "seller");
     let id = await contract.functions.FindUserID(addr);
+    let balance = await contract.functions.CheckUserCredits(addr.toString(), "seller")
+    balance = ethers.utils.formatEther(balance.toString());
     let rec = (return_rec[0]*100)/return_rec[1];
     let recStd = return_rec[2];
     rec = rec.toFixed(2);
-    document.getElementById("user_name").textContent ="暱稱: "+id;
-    document.getElementById("rec").textContent ="評價: "+rec+" %";
-    document.getElementById("rec_std").textContent ="標準: "+recStd+" %";
+    document.getElementById("user_name").textContent ="使用者名稱: "+id;
+    document.getElementById("user_balance").textContent ="信用餘額: "+balance+" eth";
+    document.getElementById("rec").textContent ="買賣評價: "+rec+" %";
+    document.getElementById("rec_std").textContent ="評價標準: "+recStd+" %";
 }
 showName();
 
 async function changeRec(user) {
     let addr = await signer.getAddress();
     let return_rec = await contract.functions.CheckUserRec(addr.toString(), user);
+    let balance = await contract.functions.CheckUserCredits(addr.toString(), user);
+    balance = ethers.utils.formatEther(balance.toString());
     let rec = (return_rec[0]*100)/return_rec[1];
     let recStd = return_rec[2];
     rec = rec.toFixed(2);
-    document.getElementById("rec").textContent ="評價: "+rec+" %";
-    document.getElementById("rec_std").textContent ="標準: "+recStd+" %";
+    document.getElementById("user_balance").textContent ="信用餘額: "+balance+" eth";
+    document.getElementById("rec").textContent ="買賣評價: "+rec+" %";
+    document.getElementById("rec_std").textContent ="評價標準: "+recStd+" %";
 }
 
 document.getElementById("#tab01").addEventListener("click", 
@@ -78,10 +87,13 @@ async function show(user, n) {
 
     let picCID = _.CID.parse(board[5][0]).toV1().toString();
     document.getElementById(n+"_pic_"+user).setAttribute("src", "https://"+picCID+".ipfs.dweb.link");
+    ipfs.pin.add(picCID);
     let msgCID = _.CID.parse(board[5][1]).toV1().toString();
     document.getElementById(n+"_moreMsg_"+user).setAttribute("src", "https://"+msgCID+".ipfs.dweb.link");
+    ipfs.pin.add(msgCID);
     let url = document.getElementById(n+"_id_"+user)+"?user="+id;
     document.getElementById(n+"_id_"+user).href = url;
+    
 }
 
 async function buy_deal(n, flag) {
@@ -100,7 +112,7 @@ async function buy_deal(n, flag) {
         await contract.Deal(name, n, overrides);
     }
     else if(flag == 1) {
-        await contract.NotDeal(name, n, overrides);
+        await contract.NoDeal(name, n, overrides);
     }
     else if(flag == 2) {
         await contract.ForceDeal(name, n, overrides);
@@ -252,3 +264,33 @@ async function showTable() {
     );
 }
 showTable();
+
+async function autoMining() {
+    const signer = provider.getSigner();
+    var contract = new ethers.Contract(address, abi, signer);
+    var bool = true;
+    async function getTime() {
+        let time = await contract.basicTime();
+        let now = Math.floor(Date.now()/1000);
+        if((now >= Number(time)) && (now <= Number(time)+60) && (bool == true)) {
+            let overrides = {
+                gasLimit: 1000000
+            }
+            await contract.functions.Mining(overrides);
+            bool = false;
+            console.log("pause:");
+            console.log(now);
+
+        }
+        else {
+            if(now > Number(time)+60)
+                bool = true;
+            console.log("now:");
+            console.log(now);
+        }
+        if(localStorage.getItem("mining") == "true")
+            window.setTimeout(getTime,1000); 
+    }
+    getTime();
+}
+autoMining();

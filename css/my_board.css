@@ -9,10 +9,13 @@
     margin-left: 200px;
     margin-right: 200px;
 }
-
-#board #board #rec, #board #rec_std{
+#board #board #user_name, #board #user_balance{
     display: inline-block;
-    padding-left: 10px;
+    margin-left: auto;
+}
+#board #rec, #board #rec_std{
+    display: inline-block;
+    margin-left: auto;
 }
 
 .btn{

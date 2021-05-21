@@ -8,19 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC&family=Open+Sans&display=swap">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/deposit.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8506f93d5c.js" crossorigin="anonymous"></script>
-    <script script type="module" src="../js/detail.js"></script>
-    
+    <script script type="module" src="../js/deposit.js"></script> 
+
     <title>ShopP2P</title>
-    <script type="text/javascript">
-        function showHideRow(row) {
-            $("#" + row).toggle();
-        }
-    </script>
 </head>
 
 <body style="background-color:rgb(230, 230, 230);">
@@ -59,38 +54,86 @@
     </header>
 
 
-    <section id="detail">
+    <section id="deposit">
         <div class="container">
-
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3>賣家資訊</h3>
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h3>信用儲值</h3>
                 </div>
             </div>
-
+            
             <div class="row">
-                <div class="col-md-12 text-left">
-                    <div class="row">
-                        <h5 id="user_name">暱稱: </h5><h5 id="rec">評價: %</h5>
-                        <br>
+                <div class="col-md-8 offset-md-2 text-left">
+                    <p>請輸入要儲值的PGN數量</p>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Sizing example input" 
+                        aria-describedby="inputGroup-sizing-lg" id="dep">
                     </div>
                     <br>
+                    <p>1 PGN = 0.1 ether額度</p>
+                    <br>
+                    <section id="button">
+                        <input class="btn"  type="button" id="add-credits" value="送出代幣">
+                    </section>
                 </div>
             </div>
-           
+        </div>
+    </section>
+
+    <section id="transfer">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="outer">
-                        <table id="table_detail">
-                            <tr>
-                                <th>物品圖片</th>
-                                <th>販售物品</th>
-                                <th>銷售價格</th>
-                                <th>交易概述</th>
-                                <th>到貨時間</th>
-                            </tr>
-                        </table>
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h3>送出代幣</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-left">
+                    <p>請輸入錢包地址</p>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Sizing example input" 
+                        aria-describedby="inputGroup-sizing-lg" id="address">
                     </div>
+                    <br>
+                    <p>請輸入PGN數量</p>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Sizing example input" 
+                        aria-describedby="inputGroup-sizing-lg" id="number">
+                    </div>
+                    <section id="button">
+                        <input class="btn"  type="button" id="transfer-to" value="送出代幣">
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mining">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h3>挖礦設定</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-left">
+                    <br>
+                    <div class="text-center">
+                        <br>
+                        <h5 id="state">目前設定: 開啟</h5>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <br>
+                        <p>開啟挖礦會不定時送出挖礦交易到智能合約並得到PGN，若不想要可以隨時關閉</p>
+                    </div>
+                    <br>
+                    <section id="button">
+                        <input class="btn"  type="button" id="mining-send" value="關閉挖礦">
+                        <a class="btn btn2" href="market.html">回到市場</a>
+                    </section>
                 </div>
             </div>
         </div>
@@ -101,24 +144,25 @@
             <div class="row">
                 <div class="col-md-4 text-left">
                     <img src="../pictures/logo.jpg">
-                    <p>ShopP2P致力於在不影響使用者體驗下給予更加安全的交易保障，隱私與分散化是我們的目標。</p>
+                    <p>ShopP2P致力於在不影響使用者體驗下給予更加安全的交易保障，成本單純化與使用者隱私是我們的目標。</p>
                 </div>
                 <div class="col-md-4 text-left">
-                    <h4>連結</h4>
+                    <h4>快速連結</h4>
                     <ul>
-                        <li><a href="homepage.html">主頁</a></li>
-                        <li><a href="#">最新消息</a></li>
+                        <li><a href="homepage.html">首頁</a></li>
+                        <li><a href="about_marketplace.html">平台簡介</a></li>
                     </ul>
                     <ul>
-                        <li><a href="#">常見問題</a></li>
-                        <li><a href="#">聯絡我們</a></li>
+                        <li><a href="rule.html">交易規則</a></li>
+                        <li><a href="register.html">馬上註冊</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-left">
                     <h4>聯絡我們</h4>
-                    <p>花蓮縣壽豐鄉中正路111號 20樓<br>
-                        Phone: 0974155444<br>
-                        E-mail: <a href="mailto:saw@gmail.com">saw@gmail.com</a>
+                    <p>974花蓮縣壽豐鄉大學路二段1號<br>
+                        Phone: 03 8903000<br>
+                        Allen"s E-mail: <a href="mailto:410625023@gms.ndhu.edu.tw">410625023@gms.ndhu.edu.tw</a><br>
+                        Billy"s E-mail: <a href="mailto:410636016@gms.ndhu.edu.tw">410636016@gms.ndhu.edu.tw</a>
                     </p>
                 </div>
             </div>

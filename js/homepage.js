@@ -1,25 +1,23 @@
-import { ethers } from "../js/ethers/dist/ethers.esm.min.js";
+import { ethers } from "./ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
-
+import "./node_modules/ipfs/index.min.js";
 
 var MyContract = Const();
 const abi = MyContract[0];
 const address = MyContract[1];
 
 let provider;
+let ipfs;
+var contract;
 
 async function init() {
     window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
+    contract = new ethers.Contract(address, abi, provider);
+    ipfs = await Ipfs.create();
 }
 init();
 
-async function send() {
-    const signer = provider.getSigner();
-    var contract = new ethers.Contract(address, abi, signer);
-    var name = document.getElementById('name').value;
-    await contract.SignUp(name.toString());
-}
-document.getElementById('send').addEventListener('click',send);
+localStorage.setItem("mining", "true");
 
 async function autoMining() {
     const signer = provider.getSigner();
