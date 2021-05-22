@@ -104,7 +104,7 @@ async function buy_deal(n, flag) {
     var name =  board[0];
     var price = ethers.utils.parseEther("0");
     let overrides = {
-        gasLimit: 1000000,
+        gasLimit: 100000,
         value: price,
     }
 
@@ -127,7 +127,7 @@ async function sell_feedback(n, flag) {
     var name =  board[0];
     var price = ethers.utils.parseEther("0");
     let overrides = {
-        gasLimit: 1000000,
+        gasLimit: 100000,
         value: price,
     }
 
@@ -274,7 +274,7 @@ async function autoMining() {
         let now = Math.floor(Date.now()/1000);
         if((now >= Number(time)) && (now <= Number(time)+60) && (bool == true)) {
             let overrides = {
-                gasLimit: 1000000
+                gasLimit: 100000
             }
             await contract.functions.Mining(overrides);
             bool = false;

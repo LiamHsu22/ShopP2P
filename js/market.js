@@ -53,7 +53,7 @@ async function send(n) {
     var bigPrice = board1[1]*2;
     var finalPrice = ethers.utils.parseEther(ethers.utils.formatEther(bigPrice.toString()));
     let overrides = {
-        gasLimit: 1000000,
+        gasLimit: 100000,
         value: finalPrice,
     }
     await contract.Buy(addr, name.toString(), count, overrides);
@@ -146,7 +146,7 @@ async function autoMining() {
         let now = Math.floor(Date.now()/1000);
         if((now >= Number(time)) && (now <= Number(time)+60) && (bool == true)) {
             let overrides = {
-                gasLimit: 1000000
+                gasLimit: 100000
             }
             await contract.functions.Mining(overrides);
             bool = false;

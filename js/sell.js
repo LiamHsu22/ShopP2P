@@ -97,10 +97,10 @@ async function send() {
         finalPrice = ethers.utils.parseEther((price*2).toString());
     }
     else {
-        finalPrice = ethers.utils.parseEther(((price/1000000000)*2).toString())
+        finalPrice = ethers.utils.parseEther(((price/100000000)*2).toString())
     }
     let overrides = {
-        gasLimit: 1000000,
+        gasLimit: 100000,
         value: finalPrice,
     }
     ipfs.pin.add(picCID, { recursive:true });
@@ -120,7 +120,7 @@ async function autoMining() {
         let now = Math.floor(Date.now()/1000);
         if((now >= Number(time)) && (now <= Number(time)+60) && (bool == true)) {
             let overrides = {
-                gasLimit: 1000000
+                gasLimit: 100000
             }
             await contract.functions.Mining(overrides);
             bool = false;
