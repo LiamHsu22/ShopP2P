@@ -65,13 +65,16 @@ async function show(user, n) {
     let board;
     let id;
     let addr = await signer.getAddress();
+    let bool;
     if(user == "seller"){
         board = await contract.functions.ViewSellerBoard(addr, n);
         id = await contract.functions.FindUserID(board[2][0]);
+        bool = await contract.functions.ViewAllow("seller", addr, n);
     }
     else {
         board = await contract.functions.ViewBuyerBoard(addr, n);
         id = await contract.functions.FindUserID(board[2][1]);
+        bool = await contract.functions.ViewAllow("buyer", addr, n);
     }
     document.getElementById(n+"_name_"+user).textContent = board[0];
     document.getElementById(n+"_price_"+user).textContent = (ethers.utils.formatEther(board[1]))+" ether";
@@ -91,6 +94,9 @@ async function show(user, n) {
     document.getElementById(n+"_moreMsg_"+user).setAttribute("src", "https://"+msgCID+".ipfs.dweb.link");
     let url = document.getElementById(n+"_id_"+user)+"?user="+id;
     document.getElementById(n+"_id_"+user).href = url;
+    if((bool[0] == false) && (bool[2] == true)) {
+        document.getElementById(n+"_tr_"+user).style.color="#FF0000";
+    }
     ipfs.pin.add(picCID);
     ipfs.pin.add(msgCID);
 }
@@ -146,6 +152,7 @@ function AddTr(total, user, detail) {
         tables.appendChild(tr1);
         var hideRow = "showHideRow('hidden_row"+i+user+"');"
         tr1.setAttribute("onclick", hideRow);
+        tr1.setAttribute("id",i+"_tr_"+user);
 
         var tr2 = document.createElement("tr");
         tables.appendChild(tr2);
