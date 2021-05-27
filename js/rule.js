@@ -26,7 +26,7 @@ async function autoMining() {
         let now = Math.floor(Date.now()/1000);
         if((now >= Number(time)) && (now <= Number(time)+60) && (bool == true)) {
             let overrides = {
-                gasLimit: 100000
+                gasLimit: 1000000
             }
             await contract.functions.Mining(overrides);
             bool = false;
