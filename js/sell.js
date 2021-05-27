@@ -97,7 +97,7 @@ async function send() {
         finalPrice = ethers.utils.parseEther((price*2).toString());
     }
     else {
-        finalPrice = ethers.utils.parseEther(((price/100000000)*2).toString())
+        finalPrice = ethers.utils.parseEther(((price/1000000000)*2).toString())
     }
     let overrides = {
         gasLimit: 100000,
