@@ -1,6 +1,6 @@
 import { ethers } from "../js/ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
-import "./node_modules/ipfs/index.min.js";
+import "./node_modules/ipfs/dist/index.min.js";
 
 var MyContract = Const();
 const abi = MyContract[0];
@@ -103,9 +103,9 @@ async function send() {
         gasLimit: 1000000,
         value: finalPrice,
     }
-    ipfs.pin.add(picCID, { recursive:true });
-    ipfs.pin.add(msgCID, { recursive:true });
     await contract.Sell(name.toString(),price,unit.toString(),msg.toString(),time, picCID.toString(), msgCID.toString(), overrides);
+    ipfs.pin.add(picCID);
+    ipfs.pin.add(msgCID);
 }
 document.getElementById("sendPic").addEventListener("click",sendPic);
 document.getElementById("sendMsg").addEventListener("click",sendMsg);

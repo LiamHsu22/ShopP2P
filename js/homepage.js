@@ -1,6 +1,6 @@
 import { ethers } from "./ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
-import "./node_modules/ipfs/index.min.js";
+import "./node_modules/ipfs/dist/index.min.js";
 
 var MyContract = Const();
 const abi = MyContract[0];

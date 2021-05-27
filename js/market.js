@@ -1,6 +1,6 @@
 import { ethers } from "./ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
-import "./node_modules/ipfs/index.min.js";
+import "./node_modules/ipfs/dist/index.min.js";
 import * as _ from "./node_modules/multiformats/esm/src/index.js"
 
 
@@ -16,7 +16,7 @@ var contract;
 async function init() {
     window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
     contract = new ethers.Contract(address, abi, provider);
-    ipfs = await Ipfs.create();
+    ipfs = await Ipfs.create()
 }
 init();
 
@@ -30,9 +30,9 @@ async function show(n) {
     document.getElementById(n+"_time").textContent = board[4]+" 天";
     let picCID = _.CID.parse(board[5]).toV1().toString();
     document.getElementById(n+"_pic").setAttribute("src", "https://"+picCID+".ipfs.dweb.link");
-    ipfs.pin.add(picCID);
     let msgCID = _.CID.parse(board[6]).toV1().toString();
     document.getElementById(n+"_moreMsg").setAttribute("src", "https://"+msgCID+".ipfs.dweb.link");
+    ipfs.pin.add(picCID);
     ipfs.pin.add(msgCID);
 }
 

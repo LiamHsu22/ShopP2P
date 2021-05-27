@@ -1,6 +1,6 @@
 import { ethers } from "../js/ethers/dist/ethers.esm.min.js";
 import Const from "./contract.js";
-import "./node_modules/ipfs/index.min.js";
+import "./node_modules/ipfs/dist/index.min.js";
 import * as _ from "./node_modules/multiformats/esm/src/index.js"
 
 
@@ -87,13 +87,12 @@ async function show(user, n) {
 
     let picCID = _.CID.parse(board[5][0]).toV1().toString();
     document.getElementById(n+"_pic_"+user).setAttribute("src", "https://"+picCID+".ipfs.dweb.link");
-    ipfs.pin.add(picCID);
     let msgCID = _.CID.parse(board[5][1]).toV1().toString();
     document.getElementById(n+"_moreMsg_"+user).setAttribute("src", "https://"+msgCID+".ipfs.dweb.link");
-    ipfs.pin.add(msgCID);
     let url = document.getElementById(n+"_id_"+user)+"?user="+id;
     document.getElementById(n+"_id_"+user).href = url;
-    
+    ipfs.pin.add(picCID);
+    ipfs.pin.add(msgCID);
 }
 
 async function buy_deal(n, flag) {
